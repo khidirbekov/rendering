@@ -6,18 +6,14 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([])
 
-
   useEffect(() => {
     setIsLoading(true);
     fetch('./db/movies.json')
         .then(response => response.json())
         .then(data => {
-          // Искусственно имитируем долгую загрузку
-          setTimeout(() => {
             setMovies(data);
             setIsLoading(false);
-          }, 3000)
-        })
+        });
   }, [])
 
   return (

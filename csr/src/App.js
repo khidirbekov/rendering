@@ -10,11 +10,8 @@ function App() {
     fetch('./db/movies.json')
         .then(response => response.json())
         .then(data => {
-          // Искусственно имитируем долгую загрузку
-          setTimeout(() => {
             setMovies(data);
             setIsLoading(false);
-          }, 3000)
         })
   }, [])
 

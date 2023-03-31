@@ -31,13 +31,13 @@ export default function Home({ movies }) {
   )
 }
 
-Home.getInitialProps = async () => {
+export async function getServerSideProps() {
   const response = await fetch(server + '/db/movies.json');
   const data = await response.json();
 
-  console.log(data)
-
   return {
-      movies: data
+      props: {
+          movies: data
+      }
   }
 }
